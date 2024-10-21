@@ -178,31 +178,54 @@
 # Logic controlling the scrollbars. "Flush" images are used to flush the
 # display when un-rendering the scrollbars. 
 #
-#Use the %?LB here, if you do it while calling the viewport instead, it bugs drawing out for some reason.
-%Vl(Scrollbar_Default,310,30,5,207,-)%VB%?LB<%?or(%or(%if(%ss(0,1,%St(foreground color)),>,7),%if(%ss(0,1,%St(foreground color)),>=,a)),%or(%if(%ss(2,1,%St(foreground color)),>,7),%if(%ss(2,1,%St(foreground color)),>=,a)),%or(%if(%ss(4,1,%St(foreground color)),>,7),%if(%ss(4,1,%St(foreground color)),>=,a)))<%xd(Scrollbar_Track_Default,2)|%xd(Scrollbar_Track_Default,1)>>
+# Use the %?LB here, if you do it while calling the viewport instead, it bugs drawing out for some reason.
+
+# Define a custom color variable that can be dynamically changed through a config file
+%St(scrollbar_color, %St(default_scrollbar_color)) # dynamically set scrollbar color
+
+# Scrollbar for Default Viewport
+%Vl(Scrollbar_Default,310,30,5,207,-,%St(scrollbar_color))%VB
+%?LB<%?or(%or(%if(%ss(0,1,%St(foreground color)),>,7),%if(%ss(0,1,%St(foreground color)),>=,a)),
+%or(%if(%ss(2,1,%St(foreground color)),>,7),%if(%ss(2,1,%St(foreground color)),>=,a)),
+%or(%if(%ss(4,1,%St(foreground color)),>,7),%if(%ss(4,1,%St(foreground color)),>=,a)))<
+%xd(Scrollbar_Track_Default,2)|%xd(Scrollbar_Track_Default,1)>>
 %Vl(Scrollbar_Default,310,30,5,207,-)%?LB<%LB(0,0,5,207,invert,noborder,nobar,slider,Thumb)|%xd(Scrollbar_Tall_Flush)>
-#
-%Vl(Scrollbar_Home,190,30,5,207,-)%VB%?LB<%?or(%or(%if(%ss(0,1,%St(foreground color)),>,7),%if(%ss(0,1,%St(foreground color)),>=,a)),%or(%if(%ss(2,1,%St(foreground color)),>,7),%if(%ss(2,1,%St(foreground color)),>=,a)),%or(%if(%ss(4,1,%St(foreground color)),>,7),%if(%ss(4,1,%St(foreground color)),>=,a)))<%xd(Scrollbar_Track_Default,2)|%xd(Scrollbar_Track_Default,1)>>
+
+# Scrollbar for Home Viewport
+%Vl(Scrollbar_Home,190,30,5,207,-,%St(scrollbar_color))%VB
+%?LB<%?or(%or(%if(%ss(0,1,%St(foreground color)),>,7),%if(%ss(0,1,%St(foreground color)),>=,a)),
+%or(%if(%ss(2,1,%St(foreground color)),>,7),%if(%ss(2,1,%St(foreground color)),>=,a)),
+%or(%if(%ss(4,1,%St(foreground color)),>,7),%if(%ss(4,1,%St(foreground color)),>=,a)))<
+%xd(Scrollbar_Track_Default,2)|%xd(Scrollbar_Track_Default,1)>>
 %Vl(Scrollbar_Home,190,30,5,207,-)%?LB<%LB(0,0,5,207,invert,noborder,nobar,slider,Thumb)>
 %Vl(Scrollbar_Home,190,30,5,207,-)%?LB<%LB(0,0,5,207,invert,noborder,nobar,slider,Thumb)|%xd(Scrollbar_Tall_Flush)>
-#
-%Vl(Scrollbar_Sub_Default,310,57,5,178,-)%VB%?LB<%?or(%or(%if(%ss(0,1,%St(foreground color)),>,7),%if(%ss(0,1,%St(foreground color)),>=,a)),%or(%if(%ss(2,1,%St(foreground color)),>,7),%if(%ss(2,1,%St(foreground color)),>=,a)),%or(%if(%ss(4,1,%St(foreground color)),>,7),%if(%ss(4,1,%St(foreground color)),>=,a)))<%xd(Scrollbar_Track_Sub,2)|%xd(Scrollbar_Track_Sub,1)>>
+
+# Scrollbar for Sub Default Viewport
+%Vl(Scrollbar_Sub_Default,310,57,5,178,-,%St(scrollbar_color))%VB
+%?LB<%?or(%or(%if(%ss(0,1,%St(foreground color)),>,7),%if(%ss(0,1,%St(foreground color)),>=,a)),
+%or(%if(%ss(2,1,%St(foreground color)),>,7),%if(%ss(2,1,%St(foreground color)),>=,a)),
+%or(%if(%ss(4,1,%St(foreground color)),>,7),%if(%ss(4,1,%St(foreground color)),>=,a)))<
+%xd(Scrollbar_Track_Sub,2)|%xd(Scrollbar_Track_Sub,1)>>
 %Vl(Scrollbar_Sub_Default,310,57,5,178,-)%?LB<%LB(0,0,5,178,invert,noborder,nobar,slider,Thumb)>
 %Vl(Scrollbar_Sub_Default,310,57,5,178,-)%?LB<%LB(0,0,5,178,invert,noborder,nobar,slider,Thumb)|%xd(Scrollbar_Short_Flush)>
-#
-%Vl(Scrollbar_Sub_Left,5,57,5,178,-)%VB%?LB<%?or(%or(%if(%ss(0,1,%St(foreground color)),>,7),%if(%ss(0,1,%St(foreground color)),>=,a)),%or(%if(%ss(2,1,%St(foreground color)),>,7),%if(%ss(2,1,%St(foreground color)),>=,a)),%or(%if(%ss(4,1,%St(foreground color)),>,7),%if(%ss(4,1,%St(foreground color)),>=,a)))<%xd(Scrollbar_Track_Sub,2)|%xd(Scrollbar_Track_Sub,1)>>
+
+# Scrollbar for Sub Left Viewport
+%Vl(Scrollbar_Sub_Left,5,57,5,178,-,%St(scrollbar_color))%VB
+%?LB<%?or(%or(%if(%ss(0,1,%St(foreground color)),>,7),%if(%ss(0,1,%St(foreground color)),>=,a)),
+%or(%if(%ss(2,1,%St(foreground color)),>,7),%if(%ss(2,1,%St(foreground color)),>=,a)),
+%or(%if(%ss(4,1,%St(foreground color)),>,7),%if(%ss(4,1,%St(foreground color)),>=,a)))<
+%xd(Scrollbar_Track_Sub,2)|%xd(Scrollbar_Track_Sub,1)>>
 %Vl(Scrollbar_Sub_Left,5,57,5,178,-)%?LB<%LB(0,0,5,178,invert,noborder,nobar,slider,Thumb)>
 %Vl(Scrollbar_Sub_Left,5,57,5,178,-)%?LB<%LB(0,0,5,178,invert,noborder,nobar,slider,Thumb)|%xd(Scrollbar_Short_Flush)>
-#
-#- Left side Scrollbar -#
-%Vl(Scrollbar_Left,5,30,5,207,-)%VB%?LB<%?or(%or(%if(%ss(0,1,%St(foreground color)),>,7),%if(%ss(0,1,%St(foreground color)),>=,a)),%or(%if(%ss(2,1,%St(foreground color)),>,7),%if(%ss(2,1,%St(foreground color)),>=,a)),%or(%if(%ss(4,1,%St(foreground color)),>,7),%if(%ss(4,1,%St(foreground color)),>=,a)))<%xd(Scrollbar_Track_Default,2)|%xd(Scrollbar_Track_Default,1)>>
-#
+
+# Left Side Scrollbar
+%Vl(Scrollbar_Left,5,30,5,207,-,%St(scrollbar_color))%VB
+%?LB<%?or(%or(%if(%ss(0,1,%St(foreground color)),>,7),%if(%ss(0,1,%St(foreground color)),>=,a)),
+%or(%if(%ss(2,1,%St(foreground color)),>,7),%if(%ss(2,1,%St(foreground color)),>=,a)),
+%or(%if(%ss(4,1,%St(foreground color)),>,7),%if(%ss(4,1,%St(foreground color)),>=,a)))<
+%xd(Scrollbar_Track_Default,2)|%xd(Scrollbar_Track_Default,1)>>
 %Vl(Scrollbar_Left,5,30,5,207,-)%?LB<%LB(0,0,5,207,invert,noborder,nobar,slider,Thumb)|%xd(Scrollbar_Tall_Flush)>
-#
-#
-%Vl(miniplayer,205,25,111,211,-)%VB%dr(0,0,-,-)%?mp<|%Cl(-51,0,211,211,c,t)%Cd>
-%?or(%or(%if(%ss(0,1,%St(foreground color)),>,7),%if(%ss(0,1,%St(foreground color)),>=,a)),%or(%if(%ss(2,1,%St(foreground color)),>,7),%if(%ss(2,1,%St(foreground color)),>=,a)),%or(%if(%ss(4,1,%St(foreground color)),>,7),%if(%ss(4,1,%St(foreground color)),>=,a)))<%?C<|%xd(AlbumPlaceholder,2)>|%?C<|%xd(AlbumPlaceholder,1)>>
-#
+
 %Vl(miniplayer,205,25,111,211,-)
 %Vl(miniplayer,205,25,111,10,12)%?mh<|a%arb>
 %Vl(miniplayer,205,226,111,10,12)%?mh<|c%ard>
